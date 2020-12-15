@@ -9,12 +9,16 @@ import java.util.Base64;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 
-//https://howtodoinjava.com/java/java-security/java-aes-encryption-example/
+
 
 public class AES {
 
     private static SecretKeySpec secretKey;
     private static byte[] key;
+
+    /**
+        initializing secret key based on user input string.
+     */
 
     public static void setKey(String myKey)
     {
@@ -33,6 +37,14 @@ public class AES {
             e.printStackTrace();
         }
     }
+    /**
+     * Encrypt user string, based on what user typed, and what key user used
+     *
+     * @param strToEncrypt The message, which user wants to encrypt
+     * @param secret         The secret key, that only user know
+     * @return The encrypted message
+     *
+     */
 
     public static String encrypt(String strToEncrypt, String secret)
     {
@@ -49,7 +61,13 @@ public class AES {
         }
         return null;
     }
-
+    /**
+     * Decrypt user string, based on what user typed, and what key user used
+     *
+     * @param strToDecrypt The message, which user wants to encrypt
+     * @param secret         The secret key, that only user know
+     * @return The decrypted message
+     */
     public static String decrypt(String strToDecrypt, String secret)
     {
         try
